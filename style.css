@@ -1,0 +1,90 @@
+#main{
+  width:100%
+}
+.container{
+  font-family: Lato;
+}
+
+.top {
+  margin: 10px;
+  padding: 80px;
+  background-image: url(https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/11156285_10153201845907243_3936722391500294835_n.jpg?oh=e98881023f8e8053a7b5bb7b2b254a31&oe=58296BE6);
+  background-size: cover;
+  background-position: center;
+}
+
+.name {
+  font-size: 100px;
+  color: white;
+  font-weight: 200;
+
+}
+
+.name:hover {
+  color:  #10a8ca;
+}
+
+.email-icon{
+  border-radius: 50%;
+  width: 100px;
+  margin: 1px;
+  transition: all .5s;
+
+}
+
+.email-icon:hover {
+  transform: scale(1.5) rotate(360deg);
+}
+
+#inbox {
+  margin-top:35px;
+  color: white;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+
+
+.mails-head {
+  background-color: #d0e0eb;
+  margin: 30px;
+  padding: 5px;
+
+}
+.mails-head th {
+    font-family: Lato;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    font-weight: 300;
+}
+
+.mails {
+  font-family: Lato;
+  font-size: 15px;
+  text-align: center;
+  color: black;
+  font-weight: 300;
+  padding: 5px
+}
+tbody td {
+  font-family: Lato;
+  font-size: 15px;
+  text-align: center;
+  color: black;
+  font-weight: 300;
+  padding: 5px
+}
+tbody tr:hover {
+  background-color: #f0f3f4;
+}
+
+.body-container {
+  padding: 20px;
+  margin: 20px;
+}
+#body-header {
+  word-spacing: 2px;
+  font-size: 20px;
+  font-weight: 300;
+}
