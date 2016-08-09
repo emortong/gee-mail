@@ -1,18 +1,79 @@
 <html>
-	<head>
-		<script src="js/mail-generator.js"></script>
-		<link href="css/style.css" rel="stylesheet" media="screen">
-    <script>
-      window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
-    </script>
-	</head>
-	<body>
-		<div class="container" id="main">
-			Build Me!
+<head>
+	<title>GeeMail</title>
+	<script src="js/mail-generator.js"></script>
+	<link href="css/style.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900' rel='stylesheet' type='text/css'>
+	<script>
+	window.onload = function() {
+		var inbox = 0;
+		var table = document.getElementById("mails-table");
+
+		window.geemails.forEach(function(mail) {
+			addOneMail(mail);
+		});
+
+		function addOneMail(mail) {
+			var row = table.insertRow(1);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			cell1.innerHTML = mail.sender;
+			cell2.innerHTML = mail.subject;
+			cell3.innerHTML = mail.date;
+			var body = mail.body;
+			inbox++
+			console.log('inbox count', inbox)
+			document.getElementById("inbox").innerHTML ="Inbox: " + inbox;
+			row.onclick = function() {
+				var allSelected = document.getElementsByClassName("imSelected");
+				document.getElementById("body-header").innerHTML = "From: " + mail.sender + "<br>" + "Subject: " + mail.subject + "<br>" + "Date: " + mail.date;
+			 	document.getElementById("body-content").innerHTML = body;
+				row.className = "imSelected";
+			};
+		}
+
+
+
+		setInterval(function() {
+			addOneMail(getNewMessage());
+		}, 5000);
+
+	}
+
+
+	</script>
+
+</head>
+<body>
+	<div class="container" id="main">
+		<div class="row top">
+			<h1 class="col-sm-9 name">GeeMail</h1>
+			<div class="container col-sm-3 text-center">
+				<img src="http://www.freeiconspng.com/uploads/email-icon-23.png" alt="email icon" class="email-icon" id="email-icon">
+				<p id="inbox">Inbox</p>
+			</div>
+		</div>
+
+		<div class="mails container">
+			<div class="body-container">
+				<div id="body-header"></div>
+				<div id="body-content"></div>
+			</div>
+			<table class="col-sm-12 " id="mails-table">
+				<thead class="mails-head">
+					<tr>
+						<th scope="col">Sender</th>
+						<th scope="col">Subject</th>
+						<th scope="col">Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="mails" class="mail-row">
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</body>
 </html>
